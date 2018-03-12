@@ -41,5 +41,4 @@ int main()
 		t[i] = tolower(t[i]);
 	}
 	cout << (s == t ? 0 : (s < t ? -1 : 1)) << finl;
-
 }
