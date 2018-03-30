@@ -27,6 +27,7 @@ void fastt(){
 }
 int n, m;
 char grid[100][100];
+int mem[100][100];
 int cnt;
 int dx[] = { 0, 1};
 int dy[] = { 1, 0};
@@ -36,10 +37,12 @@ int solve(int x, int y)
 		return 0;
 	if (x == n && y == m)
 		return 1;
+	if (mem[x][y] != -1)
+		return mem[x][y];
 	int cnt = 0;
 	for (int i = 0; i < 2; i++)
 		cnt += solve(x + dx[i], y + dy[i]);
-	return cnt;
+	return mem[x][y]=cnt;
 }
 int main()
 {
@@ -50,6 +53,7 @@ int main()
 	{
 		while (t--)
 		{
+			memset(mem, -1, sizeof mem);
 			cin >> n >> m;
 			cin.ignore();
 			for (int i = 0; i <= n;i++)
