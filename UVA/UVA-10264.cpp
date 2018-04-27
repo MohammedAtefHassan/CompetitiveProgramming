@@ -20,23 +20,6 @@ void fast(){
 	// freopen("output.out", "w", stdout);
 #endif
 }
-vector<int>emp[101];
-vector<int>lan[101];
-int cnt; bool vis[101];
-void dfs(int node)
-{
-	vis[node] = true;
-	for (auto l : emp[node])
-	{
-		for (auto x : lan[l])
-		{
-			if (vis[x] == false)
-			{
-				dfs(x);
-			}
-		}
-	}
-}
 ll arr[50000];
 ll w[50000];
 int main()
